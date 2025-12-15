@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import api from '../services/api';
+import teamMember1 from "../assets/1.jpg";
+import teamMember2 from "../assets/2.jpg";
+import teamMember3 from "../assets/3.jpg";
+
+
 import { 
   HiCamera, 
   HiLocationMarker, 
@@ -55,35 +60,18 @@ const AboutPage = () => {
     },
   ];
 
-  const teamMembers = [
-    {
-      name: 'Nanuka Khatiashvili',
-      role: 'CEO',
-      emoji: '👨‍💼'
-    },
-    {
-      name: 'Kakhi Kakhidze',
-      role: 'CTO',
-      emoji: '👩‍🍳'
-    },
-    {
-      name: 'Nina Chkhikvadze',
-      role: 'Merketing Manager',
-      emoji: '👨‍💻'
-    },
-  ];
 
   return (
     <div style={{ background: '#ffffff', minHeight: '100vh' }}>
       {/* Hero Section */}
-      <section style={{ 
+      <section className="hero-section-mobile" style={{ 
         padding: '120px 24px 80px',
         background: 'linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)',
         position: 'relative',
         overflow: 'hidden'
       }}>
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ 
+          <div className="hero-grid-mobile" style={{ 
             display: 'grid', 
             gridTemplateColumns: '1fr 1fr', 
             gap: '60px', 
@@ -138,13 +126,13 @@ const AboutPage = () => {
                 </button>
               )}
             </div>
-            <div style={{ 
+            <div className="hero-image-wrapper-mobile" style={{ 
               position: 'relative',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center'
             }}>
-              <div style={{
+              <div className="hero-image-box-mobile" style={{
                 width: '400px',
                 height: '400px',
                 background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -170,7 +158,7 @@ const AboutPage = () => {
         background: 'white'
       }}>
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ 
+          <div className="about-content-grid-mobile" style={{ 
             display: 'grid', 
             gridTemplateColumns: '1fr 1fr', 
             gap: '80px',
@@ -239,7 +227,7 @@ const AboutPage = () => {
                 </button>
               )}
             </div>
-            <div style={{
+            <div className="stats-grid-2x2-mobile" style={{
               display: 'grid',
               gridTemplateColumns: '1fr 1fr',
               gap: '24px'
@@ -330,7 +318,7 @@ const AboutPage = () => {
               Discover amazing experiences and grow your food business with our platform
             </p>
           </div>
-          <div style={{ 
+          <div className="features-grid-mobile" style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
             gap: '32px' 
@@ -381,21 +369,24 @@ const AboutPage = () => {
                 }}>
                   {feature.description}
                 </p>
-                <a 
-                  href="#" 
-                  onClick={(e) => {
-                    e.preventDefault();
+                <button 
+                  onClick={() => {
                     navigate('/map');
                   }}
                   style={{
+                    background: 'transparent',
+                    border: 'none',
                     color: '#e63946',
                     textDecoration: 'none',
                     fontWeight: '600',
-                    fontSize: '0.9375rem'
+                    fontSize: '0.9375rem',
+                    cursor: 'pointer',
+                    padding: 0,
+                    font: 'inherit'
                   }}
                 >
                   Get Started →
-                </a>
+                </button>
               </div>
             ))}
           </div>
@@ -403,97 +394,128 @@ const AboutPage = () => {
       </section>
 
       {/* Team Members Section */}
-      <section style={{ padding: '80px 24px', background: 'white' }}>
-        <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center',
-            marginBottom: '60px'
-          }}>
-            <h2 style={{ 
-              fontSize: '2.5rem', 
-              fontWeight: '700',
-              color: '#212529'
-            }}>
-              Our Dedicated Team Members
+      <section style={{ padding: "80px 24px", background: "white" }}>
+        <div
+          className="container"
+          style={{ maxWidth: "1200px", margin: "0 auto" }}
+        >
+          <div style={{ textAlign: "center", marginBottom: "60px" }}>
+            <h2
+              style={{
+                fontSize: "2.5rem",
+                fontWeight: "700",
+                marginBottom: "16px",
+                color: "#212529",
+              }}
+            >
+              Meet Our Team
             </h2>
-            {!isAuthenticated && (
-              <button
-                onClick={() => navigate('/register')}
-                style={{
-                  padding: '12px 24px',
-                  fontSize: '0.9375rem',
-                  fontWeight: '600',
-                  background: '#e63946',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '12px',
-                  cursor: 'pointer',
-                  boxShadow: '0 4px 12px rgba(25, 118, 210, 0.3)',
-                  transition: 'all 0.3s ease'
-                }}
-              >
-                Join Us
-              </button>
-            )}
+            <p
+              style={{
+                fontSize: "1.125rem",
+                color: "#6c757d",
+                maxWidth: "600px",
+                margin: "0 auto",
+              }}
+            >
+              The passionate people behind TravelPass, dedicated to making your
+              travel experiences unforgettable
+            </p>
           </div>
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
-            gap: '32px' 
-          }}>
-            {teamMembers.map((member, index) => (
-              <div 
+          <div
+            className="team-grid-mobile"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "flex-start",
+              gap: "40px",
+              flexWrap: "wrap",
+              maxWidth: "1200px",
+              margin: "0 auto",
+            }}
+          >
+            {[
+              {
+                name: "Nanuka Khatiashvili",
+                role: "CEO",
+                image: teamMember1,
+              },
+              {
+                name: "Kakhi Kakhidze",
+                role: "CTO",
+                image: teamMember2,
+              },
+              {
+                name: "Nina Chkhikvadze",
+                role: "Merketing Manager",
+                image: teamMember3,
+              }
+            ].map((member, index) => (
+              <div
                 key={index}
                 style={{
-                  padding: '32px',
-                  background: 'white',
-                  borderRadius: '16px',
-                  border: '1px solid #e9ecef',
-                  textAlign: 'center',
-                  transition: 'all 0.3s ease'
+                  textAlign: "center",
+                  transition: "all 0.3s ease",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-8px)';
-                  e.currentTarget.style.boxShadow = '0 12px 24px rgba(0,0,0,0.1)';
+                  e.currentTarget.style.transform = "translateY(-8px)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = "translateY(0)";
                 }}
               >
-                <div style={{ 
-                  fontSize: '80px', 
-                  marginBottom: '24px',
-                  display: 'inline-block'
-                }}>
-                  {member.emoji}
+                <div
+                  style={{
+                    width: "200px",
+                    height: "200px",
+                    borderRadius: "50%",
+                    margin: "0 auto 24px",
+                    overflow: "hidden",
+                    border: "4px solid #e9ecef",
+                    boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
+                    transition: "all 0.3s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = "#2d5016";
+                    e.currentTarget.style.boxShadow =
+                      "0 12px 32px rgba(45, 80, 22, 0.3)";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = "#e9ecef";
+                    e.currentTarget.style.boxShadow =
+                      "0 8px 24px rgba(0,0,0,0.1)";
+                  }}
+                >
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
                 </div>
-                <h3 style={{ 
-                  fontSize: '1.25rem', 
-                  fontWeight: '700', 
-                  marginBottom: '8px',
-                  color: '#212529'
-                }}>
+                <h3
+                  style={{
+                    fontSize: "1.5rem",
+                    fontWeight: "700",
+                    marginBottom: "8px",
+                    color: "#212529",
+                  }}
+                >
                   {member.name}
                 </h3>
-                <p style={{ 
-                  fontSize: '1rem', 
-                  color: '#6c757d',
-                  marginBottom: '20px'
-                }}>
+                <p
+                  style={{
+                    fontSize: "1rem",
+                    color: "#6c757d",
+                    marginBottom: "16px",
+                  }}
+                >
                   {member.role}
                 </p>
-                <div style={{ 
-                  display: 'flex', 
-                  justifyContent: 'center', 
-                  gap: '16px' 
-                }}>
-                  <a href="#" style={{ color: '#6c757d', fontSize: '1.25rem' }}>🐦</a>
-                  <a href="#" style={{ color: '#6c757d', fontSize: '1.25rem' }}>💼</a>
-                  <a href="#" style={{ color: '#6c757d', fontSize: '1.25rem' }}>📷</a>
-                </div>
               </div>
             ))}
           </div>

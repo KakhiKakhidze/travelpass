@@ -73,7 +73,7 @@ const ContactPage = () => {
   return (
     <div style={{ background: '#ffffff', minHeight: '100vh' }}>
       {/* Hero Section */}
-      <section style={{ 
+      <section className="hero-section-mobile" style={{ 
         padding: '120px 24px 80px',
         background: 'linear-gradient(135deg, #e63946 0%, #457b9d 50%, #06d6a0 100%)',
         position: 'relative',
@@ -116,7 +116,7 @@ const ContactPage = () => {
       {/* Contact Section */}
       <section style={{ padding: '80px 24px' }}>
         <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
-          <div style={{
+          <div className="contact-form-grid-mobile" style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
             gap: '64px',
@@ -329,10 +329,14 @@ const ContactPage = () => {
                     { Icon: FaInstagram, name: 'Instagram' },
                     { Icon: FaFacebook, name: 'Facebook' }
                   ].map(({ Icon, name }, idx) => (
-                    <a
+                    <button
                       key={idx}
-                      href="#"
+                      type="button"
                       title={name}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        // Social media links would go here
+                      }}
                       style={{
                         width: '50px',
                         height: '50px',
@@ -345,7 +349,10 @@ const ContactPage = () => {
                         textDecoration: 'none',
                         transition: 'all 0.3s ease',
                         boxShadow: '0 4px 12px rgba(230, 57, 70, 0.2)',
-                        color: 'white'
+                        color: 'white',
+                        border: 'none',
+                        cursor: 'pointer',
+                        padding: 0
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-4px) scale(1.1)';
@@ -357,7 +364,7 @@ const ContactPage = () => {
                       }}
                     >
                       <Icon size={24} />
-                    </a>
+                    </button>
                   ))}
                 </div>
               </div>

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import api from '../services/api';
 import { HiChat } from 'react-icons/hi';
 
 const MessagesPage = () => {
   const [chats, setChats] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
 
   useEffect(() => {
     // For now, show placeholder
@@ -29,12 +27,6 @@ const MessagesPage = () => {
   return (
     <div className="container-sm py-4">
       <h2 className="mb-4">Messages</h2>
-
-      {error && (
-        <div className="alert alert-error mb-3">
-          {error}
-        </div>
-      )}
 
       {chats.length === 0 ? (
         <div className="paper p-4 text-center">

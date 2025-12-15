@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
-import { HiBookmark, HiLocationMarker, HiPlus, HiHeart, HiUser } from 'react-icons/hi';
+import { HiBookmark, HiLocationMarker, HiPlus, HiUser } from 'react-icons/hi';
 import LevelBadge from '../components/LevelBadge';
 
 const CollectionsPage = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [collections, setCollections] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -75,9 +73,9 @@ const CollectionsPage = () => {
 
   return (
     <div className="container-sm py-4">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+      <div className="page-header-mobile" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
         <h2 style={{ margin: 0 }}>Location Collections</h2>
-        <button className="btn" onClick={() => setShowCreateModal(true)}>
+        <button className="btn btn-mobile-full" onClick={() => setShowCreateModal(true)}>
           <HiPlus size={20} style={{ marginRight: '6px', display: 'inline' }} />
           Create Collection
         </button>
@@ -98,7 +96,7 @@ const CollectionsPage = () => {
           </button>
         </div>
       ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
+        <div className="collections-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '20px' }}>
           {collections.map((collection) => (
             <div
               key={collection.id}

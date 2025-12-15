@@ -76,15 +76,9 @@ const ProfilePage = () => {
     return levelXP[user.level] || 500;
   };
 
-  const getXPForCurrentLevel = () => {
-    const levelXP = [0, 50, 150, 300, 500];
-    return levelXP[user.level - 1] || 0;
-  };
+ 
 
-  const xpProgress = user.xp - getXPForCurrentLevel();
-  const xpNeeded = getXPForNextLevel() - getXPForCurrentLevel();
-  const xpPercentage = (xpProgress / xpNeeded) * 100;
-
+  
   if (loading) {
     return (
       <div style={{ 

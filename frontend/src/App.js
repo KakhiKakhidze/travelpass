@@ -5,7 +5,7 @@ import { AccessibilityProvider } from './contexts/AccessibilityContext';
 import ErrorBoundary from './components/ErrorBoundary';
 import PrivateRoute from './components/PrivateRoute';
 import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+import MobileBottomNav from './components/MobileBottomNav';
 import AccessibilityControls from './components/AccessibilityControls';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
@@ -133,7 +133,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
             </main>
-          <Footer />
+          <MobileBottomNav />
             <AccessibilityControls />
         </Router>
       </AuthProvider>

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import api from '../services/api';
-import { HiCheck, HiX } from 'react-icons/hi';
 
 const TastePreferenceSetup = ({ onComplete, onSkip }) => {
   const [step, setStep] = useState(1);
@@ -99,7 +98,7 @@ const TastePreferenceSetup = ({ onComplete, onSkip }) => {
   };
 
   return (
-    <div style={{
+    <div className="taste-setup-mobile" style={{
       background: 'white',
       borderRadius: '24px',
       padding: '40px',
@@ -195,7 +194,7 @@ const TastePreferenceSetup = ({ onComplete, onSkip }) => {
           }}>
             Select all flavors you like (you can select multiple)
           </p>
-          <div style={{ 
+          <div className="taste-options-grid-mobile" style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', 
             gap: '12px',
@@ -261,7 +260,7 @@ const TastePreferenceSetup = ({ onComplete, onSkip }) => {
           }}>
             Select any dietary restrictions you follow (optional)
           </p>
-          <div style={{ 
+          <div className="taste-options-grid-mobile" style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', 
             gap: '12px',
@@ -315,7 +314,7 @@ const TastePreferenceSetup = ({ onComplete, onSkip }) => {
           }}>
             Select any dietary preferences you follow (optional)
           </p>
-          <div style={{ 
+          <div className="taste-options-grid-mobile" style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', 
             gap: '12px',
@@ -369,7 +368,7 @@ const TastePreferenceSetup = ({ onComplete, onSkip }) => {
           }}>
             Select any allergies you have (optional)
           </p>
-          <div style={{ 
+          <div className="taste-options-grid-mobile" style={{ 
             display: 'grid', 
             gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', 
             gap: '12px',
@@ -406,11 +405,12 @@ const TastePreferenceSetup = ({ onComplete, onSkip }) => {
       )}
 
       {/* Navigation Buttons */}
-      <div style={{ 
+      <div className="taste-setup-buttons-mobile" style={{ 
         display: 'flex', 
         justifyContent: 'space-between',
         gap: '16px',
-        marginTop: '32px'
+        marginTop: '32px',
+        flexWrap: 'wrap'
       }}>
         {step > 1 ? (
           <button

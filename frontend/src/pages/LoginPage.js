@@ -30,9 +30,9 @@ const LoginPage = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: '24px'
+      padding: '16px'
     }}>
-      <div style={{ 
+      <div className="login-container" style={{ 
         maxWidth: '500px', 
         width: '100%',
         background: 'white',

@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
-import { useAuth } from '../contexts/AuthContext';
 import { HiHeart, HiChat, HiLocationMarker, HiStar, HiShare } from 'react-icons/hi';
 import LevelBadge from '../components/LevelBadge';
 
 const FeedPage = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const [feed, setFeed] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -119,9 +117,9 @@ const FeedPage = () => {
           </button>
         </div>
       ) : (
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div className="feed-items-mobile" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {feed.map((item) => (
-            <div key={`${item.type}-${item.id}`} className="paper p-4">
+            <div key={`${item.type}-${item.id}`} className="paper p-4 feed-item-mobile">
               {item.type === 'checkin' && (
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px' }}>

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Html5Qrcode } from 'html5-qrcode';
-import { useNavigate } from 'react-router-dom';
 import api from '../services/api';
 import TasteFeedbackModal from '../components/TasteFeedbackModal';
 
 const QRScanPage = () => {
-  const navigate = useNavigate();
   const [scanning, setScanning] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');

@@ -25,6 +25,7 @@ const TasteMemoryPage = () => {
     fetchTasteProfile();
     fetchTasteHistory();
     fetchRecommendations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchTasteProfile = async () => {
@@ -185,7 +186,6 @@ const TasteMemoryPage = () => {
     ];
   };
 
-  const flavorTags = ['spicy', 'sweet', 'savory', 'sour', 'bitter', 'aromatic', 'cheesy', 'buttery', 'smoky', 'fresh'];
   const preferredFlavors = tasteProfile?.flavorPreferences || {};
 
   if (loading) {
@@ -202,10 +202,10 @@ const TasteMemoryPage = () => {
   }
 
   return (
-    <div style={{ background: '#ffffff', minHeight: '100vh', padding: '40px 24px' }}>
-      <div className="container" style={{ maxWidth: '1200px', margin: '0 auto' }}>
+    <div className="taste-memory-page-mobile" style={{ background: '#ffffff', minHeight: '100vh', padding: '40px 24px', width: '100%', boxSizing: 'border-box', overflowX: 'hidden' }}>
+      <div className="container taste-memory-container-mobile" style={{ maxWidth: '1200px', margin: '0 auto', width: '100%', boxSizing: 'border-box' }}>
         {/* Header */}
-        <div style={{ marginBottom: '48px', textAlign: 'center' }}>
+        <div className="taste-memory-header-mobile" style={{ marginBottom: '48px', textAlign: 'center' }}>
           <div style={{ 
             fontSize: '64px', 
             marginBottom: '16px',
@@ -316,12 +316,15 @@ const TasteMemoryPage = () => {
 
         {/* Tabs */}
         {!showSetup && (
-          <div style={{ 
+          <div className="taste-memory-tabs-mobile" style={{ 
             display: 'flex', 
             gap: '8px', 
             marginBottom: '32px',
             borderBottom: '2px solid #e9ecef',
-            paddingBottom: '16px'
+            paddingBottom: '16px',
+            overflowX: 'auto',
+            scrollbarWidth: 'none',
+            msOverflowStyle: 'none'
           }}>
           {[
             { id: 'profile', label: 'Taste Profile', icon: HiSparkles },
@@ -446,7 +449,7 @@ const TasteMemoryPage = () => {
                     <HiSparkles size={24} style={{ color: '#667eea' }} />
                     Flavor Preferences
                   </h2>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+                  <div className="flavor-preferences-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
                     {Object.entries(preferredFlavors).map(([flavor, score]) => (
                       <div key={flavor} style={{
                         padding: '20px',
@@ -515,7 +518,7 @@ const TasteMemoryPage = () => {
                       <HiHeart size={24} style={{ color: '#e63946' }} />
                       Favorite Dishes
                     </h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '16px' }}>
+                    <div className="favorite-dishes-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '16px' }}>
                       {tasteProfile.favoriteDishes.slice(0, 6).map((dish, idx) => (
                         <div key={idx} style={{
                           padding: '16px',
@@ -573,7 +576,7 @@ const TasteMemoryPage = () => {
                     }}>
                       Dietary Profile
                     </h2>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                    <div className="dietary-tags-mobile" style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
                       {tasteProfile.dietaryProfile.restrictions?.map((restriction, idx) => (
                         <span key={idx} style={{
                           padding: '8px 16px',
@@ -670,7 +673,7 @@ const TasteMemoryPage = () => {
                       gap: '20px',
                       alignItems: 'flex-start'
                     }}>
-                      <div style={{
+                      <div className="taste-history-icon-mobile" style={{
                         width: '60px',
                         height: '60px',
                         borderRadius: '12px',
@@ -684,7 +687,7 @@ const TasteMemoryPage = () => {
                       }}>
                         🍽️
                       </div>
-                      <div style={{ flex: 1 }}>
+                      <div className="taste-history-content-mobile" style={{ flex: 1 }}>
                         <div style={{ 
                           display: 'flex', 
                           justifyContent: 'space-between',
@@ -805,7 +808,7 @@ const TasteMemoryPage = () => {
                     </div>
                   </div>
                 )}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
+                <div className="recommendations-grid-mobile" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '24px' }}>
                   {recommendations.map((rec, idx) => (
                     <div key={idx} style={{
                       background: 'white',

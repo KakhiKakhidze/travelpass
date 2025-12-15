@@ -87,6 +87,7 @@ const HomePage = () => {
     <div style={{ background: "#ffffff", minHeight: "100vh" }}>
       {/* Hero Section */}
       <section
+        className="hero-section-mobile"
         style={{
           padding: "120px 24px 80px",
           background: "linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)",
@@ -99,6 +100,7 @@ const HomePage = () => {
           style={{ maxWidth: "1200px", margin: "0 auto" }}
         >
           <div
+            className="hero-grid-mobile"
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr",
@@ -228,6 +230,7 @@ const HomePage = () => {
               </div>
             </div>
             <div
+              className="hero-image-wrapper-mobile"
               style={{
                 position: "relative",
                 display: "flex",
@@ -236,6 +239,7 @@ const HomePage = () => {
               }}
             >
               <div
+                className="hero-image-box-mobile"
                 style={{
                   width: "400px",
                   height: "400px",
@@ -362,6 +366,7 @@ const HomePage = () => {
             </p>
           </div>
           <div
+            className="features-grid-mobile"
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
@@ -422,10 +427,8 @@ const HomePage = () => {
                   {feature.description}
                 </p>
                 <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-                  <a 
-                    href="#" 
-                    onClick={(e) => {
-                      e.preventDefault();
+                  <button 
+                    onClick={() => {
                       if (isAuthenticated) {
                         navigate("/scan");
                       } else {
@@ -433,14 +436,19 @@ const HomePage = () => {
                       }
                     }}
                     style={{
+                      background: 'transparent',
+                      border: 'none',
                       color: "#2d5016",
                       textDecoration: "none",
                       fontWeight: "600",
                       fontSize: "0.9375rem",
+                      cursor: 'pointer',
+                      padding: 0,
+                      font: 'inherit'
                     }}
                   >
                     Start Exploring →
-                  </a>
+                  </button>
                 </div>
               </div>
             ))}
@@ -491,6 +499,7 @@ const HomePage = () => {
             }}
           >
             <div
+              className="stats-grid-mobile"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
@@ -616,6 +625,7 @@ const HomePage = () => {
               </p>
             </div>
             <div
+              className="venues-grid-mobile"
               style={{
                 display: "grid",
                 gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
@@ -788,12 +798,13 @@ const HomePage = () => {
             </p>
           </div>
           <div
+            className="team-grid-mobile"
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "flex-start",
               gap: "40px",
-              flexWrap: "nowrap",
+              flexWrap: "wrap",
               maxWidth: "1200px",
               margin: "0 auto",
             }}
