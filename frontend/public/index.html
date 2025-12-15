@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GastroPassport Georgia</title>
+  </head>
+  <body>
+    <!-- SVG filters for colorblind simulation -->
+    <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+      <defs>
+        <!-- Protanopia filter: Red-blind -->
+        <filter id="protanopia-filter" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0.567, 0.433, 0,     0, 0
+                                                0.558, 0.442, 0,     0, 0
+                                                0,     0.242, 0.758, 0, 0
+                                                0,     0,     0,     1, 0"/>
+        </filter>
+        <!-- Deuteranopia filter: Green-blind -->
+        <filter id="deuteranopia-filter" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0.625, 0.375, 0,     0, 0
+                                                0.7,   0.3,    0,     0, 0
+                                                0,     0.3,    0.7,   0, 0
+                                                0,     0,      0,     1, 0"/>
+        </filter>
+        <!-- Tritanopia filter: Blue-blind -->
+        <filter id="tritanopia-filter" color-interpolation-filters="sRGB">
+          <feColorMatrix type="matrix" values="0.95, 0.05,  0,     0, 0
+                                                0,    0.433, 0.567, 0, 0
+                                                0,    0.475, 0.525, 0, 0
+                                                0,    0,     0,     1, 0"/>
+        </filter>
+      </defs>
+    </svg>
+    <div id="root"></div>
+  </body>
+</html>
+
