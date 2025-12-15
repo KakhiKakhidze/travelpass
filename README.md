@@ -157,7 +157,7 @@ Key endpoints:
    cd frontend
    npm run build
    ```
-2. Deploy the `build/` folder to platforms like Vercel, Netlify, or AWS S3
+2. Deploy the `build/` folder to platforms like Netlify or AWS S3
 
 ## 🤝 Contributing
 
