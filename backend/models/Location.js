@@ -9,8 +9,7 @@ const locationSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['restaurant', 'landmark', 'viewpoint', 'hiking_trail', 'museum', 'park', 'winery', 'guesthouse', 'cooking_studio', 'other'],
-    index: true
+    enum: ['restaurant', 'landmark', 'viewpoint', 'hiking_trail', 'museum', 'park', 'winery', 'guesthouse', 'cooking_studio', 'other']
   },
   category: [{
     type: String // More flexible than enum - can include any tags
@@ -20,8 +19,7 @@ const locationSchema = new mongoose.Schema({
     address: String,
     coordinates: {
       type: [Number], // [longitude, latitude]
-      required: true,
-      index: '2dsphere'
+      required: true
     },
     region: String,
     country: String
@@ -96,8 +94,7 @@ const locationSchema = new mongoose.Schema({
   
   isActive: {
     type: Boolean,
-    default: true,
-    index: true
+    default: true
   }
 }, {
   timestamps: true

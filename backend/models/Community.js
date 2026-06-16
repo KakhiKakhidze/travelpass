@@ -13,8 +13,7 @@ const communitySchema = new mongoose.Schema({
   type: {
     type: String,
     enum: ['city', 'interest', 'custom'],
-    required: true,
-    index: true
+    required: true
   },
   category: String, // 'Tbilisi', 'Hiking', 'Food', etc.
   location: {
@@ -44,8 +43,7 @@ const communitySchema = new mongoose.Schema({
   // Settings
   isPublic: {
     type: Boolean,
-    default: true,
-    index: true
+    default: true
   },
   joinApproval: {
     type: Boolean,

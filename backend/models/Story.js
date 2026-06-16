@@ -54,8 +54,7 @@ const storySchema = new mongoose.Schema({
     default: function() {
       // 24 hours from creation
       return new Date(Date.now() + 24 * 60 * 60 * 1000);
-    },
-    index: { expireAfterSeconds: 0 }
+    }
   },
   isHighlighted: {
     type: Boolean,
@@ -76,7 +75,7 @@ const storySchema = new mongoose.Schema({
 
 // Indexes
 storySchema.index({ userId: 1, createdAt: -1 });
-storySchema.index({ expiresAt: 1 });
+storySchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 storySchema.index({ 'locationTag.coordinates': '2dsphere' });
 
 module.exports = mongoose.model('Story', storySchema);
